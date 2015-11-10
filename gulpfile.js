@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+    colors  = require('colors');
     jshint = require('gulp-jshint'),
     concat = require('gulp-concat-util'),
     uglify = require('gulp-uglify'),

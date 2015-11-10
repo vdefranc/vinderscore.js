@@ -25,7 +25,7 @@ vs.each = function (list, iteratee, context) {
 
   // if an object is passed in as a collection, unpackage it in the target
   // otherwise set target to the list
-  if (typeof list === 'object' && !Array.isArray(list)) {
+  if (!list.length) {
     target = [];
 
     for (var prop in list) {

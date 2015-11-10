@@ -37,4 +37,11 @@ describe('vs.each', function () {
     expect(result).toEqual(expected);
   });
 
+  it('should work with objects', function () {
+    var spy = jasmine.createSpy(),
+        funct = vs.each({vin: 'lol'}, spy);
+
+    expect(spy).toHaveBeenCalled();
+  });
+
 });

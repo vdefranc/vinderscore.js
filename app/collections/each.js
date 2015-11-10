@@ -20,13 +20,28 @@
  */
 
 vs.each = function (list, iteratee, context) {
-  var fn = iteratee;
+  var fn = iteratee,
+      target;
+
+  // if an object is passed in as a collection, unpackage it in the target
+  // otherwise set target to the list
+  if (typeof list === 'object' && !Array.isArray(list)) {
+    target = [];
+
+    for (var prop in list) {
+      if ( list.hasOwnProperty(prop) ) {
+        target.push(list[prop]);
+      }
+    }
+  } else {
+    target = list;
+  }
 
   if (typeof context === 'object') {
     fn = iteratee.bind(context);
   }
 
-  list.forEach(function (item) {
+  target.forEach(function (item) {
     fn(item);
   });
 

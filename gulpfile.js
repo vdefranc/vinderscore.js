@@ -1,10 +1,7 @@
 var gulp = require('gulp'),
     jshint = require('gulp-jshint'),
     concat = require('gulp-concat-util'),
-    jasmine = require('gulp-jasmine'),
     uglify = require('gulp-uglify'),
-    watch = require('gulp-watch'),
-    reporters = require('jasmine-reporters'),
     jasmineBrowser = require('gulp-jasmine-phantom'),
     watch = require("gulp-watch");
 
@@ -14,7 +11,7 @@ var phantomOptions = {
 };
 
 gulp.task('jshint', function() {
-  return gulp.src(['app/**/*.js')
+  return gulp.src(['app/**/*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });

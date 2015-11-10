@@ -19,4 +19,22 @@ describe('vs.each', function () {
     expect(test).toEqual(expected);
   });
 
+  it('binds the iteratee to the context, if one is passed', function () {
+    var result = '',
+        expected = 'There are 3 wheels.',
+        tricycle = {
+          wheels: 3
+        },
+        car = {
+          wheels: 4,
+          howManyWheels: function () {
+            result = 'There are ' + this.wheels + ' wheels.';
+          }
+        };
+
+    vs.each([1], car.howManyWheels, tricycle);
+
+    expect(result).toEqual(expected);
+  });
+
 });

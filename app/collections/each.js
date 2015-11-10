@@ -18,8 +18,14 @@
  */
 
 vs.each = function (list, iteratee, context) {
+  var fn = iteratee;
+
+  if (typeof context === 'object') {
+    fn = iteratee.bind(context);
+  }
+
   list.forEach(function (item) {
-    iteratee(item);
+    fn(item);
   });
 
   return list;

@@ -14,7 +14,7 @@ var phantomOptions = {
 };
 
 gulp.task('jshint', function() {
-  return gulp.src('app/**/*.js')
+  return gulp.src(['app/**/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });

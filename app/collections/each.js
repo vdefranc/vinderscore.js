@@ -17,8 +17,12 @@
  *   But it works by duck-typing, so avoid passing objects with a numeric length property.
  */
 
-vs.each = function (array) {
-  return a + b;
+vs.each = function (list, iteratee, context) {
+  list.forEach(function (item) {
+    iteratee(item);
+  });
+
+  return list;
 };
 
 

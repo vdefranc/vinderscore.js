@@ -1,6 +1,6 @@
-describe('add function', function () {
+describe('vs.each', function () {
 
-  it('should add numbers together', function () {
+  it('should ?', function () {
     var result = vs.add(4,5),
         expected = 9;
 

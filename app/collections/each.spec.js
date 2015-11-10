@@ -1,4 +1,7 @@
 describe('vs.each', function () {
+  it('should be complete', function () {
+    expect(false).toEqual(true);
+  });
 
   it('should return an array', function () {
     var result = Array.isArray(vs.each([])),

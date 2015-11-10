@@ -1,4 +1,7 @@
 describe('vs.first', function () {
+  it('should be complete', function () {
+    expect(true).toEqual(true);
+  });
 
   describe('if called with one argument', function () {
     it('should return an number', function () {

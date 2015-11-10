@@ -35,5 +35,11 @@ gulp.task('test', function () {
     .pipe(jasmineBrowser(phantomOptions));
 });
 
+gulp.task('watch', function () {
+  watch('app/**/*.js', function () {
+      gulp.run('default');
+  });
+});
+
 // Default Task
 gulp.task('default', ['jshint', 'concat.scripts', 'concat.tests', 'test']);

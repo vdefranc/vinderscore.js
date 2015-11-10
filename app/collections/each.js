@@ -7,7 +7,9 @@
  *
  *
  * 1. Iterates over a list of elements, yielding each in turn to an iteratee function.
+ *     DONE
  * 2. The iteratee is bound to the context object, if one is passed.
+ *     DONE
  * 3. Each invocation of iteratee is called with three arguments: (element, index, list).
  * 4. If list is a JavaScript object, iteratee's arguments will be (value, key, list).
  *

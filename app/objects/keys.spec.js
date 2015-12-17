@@ -16,7 +16,6 @@ describe('vs.keys:', function () {
 
   result = vs.keys(testObj);
 
-
   it('returns an array', function () {
     var blankResult = vs.keys();
     expect(Array.isArray( result )).toEqual(true);
@@ -28,10 +27,5 @@ describe('vs.keys:', function () {
       expect(propsToAdd).toEqual(result);
     });
   });
-
-
-
-
-  
 
 });

@@ -5,7 +5,6 @@
  *
  * Tells you if the keys and values in properties are contained in object.
  * 
- *
  * @param { object } [obj] [an object to test against param props]
  * @param { object } [props] [a set of key/val pairs to check for]
  */

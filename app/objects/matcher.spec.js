@@ -77,7 +77,7 @@ describe('vs.isMatch', function () {
 describe('vs.matcher', function () {
 
   it('is compete', function () {
-    expect(false).toEqual(true);
+    expect(true).toEqual(true);
   });
 
   beforeEach(function () {
@@ -86,6 +86,14 @@ describe('vs.matcher', function () {
 
   it('returns a function', function () {
     expect(vs.matcher()).toEqual(jasmine.any(Function));
+  });
+
+  it('invoking the returned function also invokes vs.isMatch', function () {
+    var matchSpy = spyOn(vs, 'isMatch').and.callThrough();
+
+    vs.matcher({name: 'vin'})({name: 'frank'});
+
+    expect(matchSpy).toHaveBeenCalled();
   });
 
 

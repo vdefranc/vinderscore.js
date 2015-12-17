@@ -38,5 +38,7 @@ vs.isMatch = function (obj, props) {
  */
 
 vs.matcher = function (attrs) {
-  return function () {};
+  return function (obj) {
+    return vs.isMatch(obj, attrs);
+  };
 };

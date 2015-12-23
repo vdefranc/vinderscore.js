@@ -1,6 +1,9 @@
 describe('vs.first', function () {
   it('should be complete', function () {
-    expect(true).toEqual(true);
+    expect(false).toEqual(true);
+    // the function does not necessarily return a number.
+    // can return any value.
+    // it returns the value from the first cell.
   });
 
   describe('if called with one argument', function () {

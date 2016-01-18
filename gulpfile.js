@@ -4,7 +4,8 @@ var gulp = require('gulp'),
     concat = require('gulp-concat-util'),
     uglify = require('gulp-uglify'),
     jasmineBrowser = require('gulp-jasmine-phantom'),
-    watch = require("gulp-watch");
+    watch = require("gulp-watch"),
+    babel = require('gulp-babel');
 
 var phantomOptions = {
   integration: true, 
@@ -21,6 +22,9 @@ gulp.task('concat.scripts', function () {
   return gulp.src(['app/**/*.js', '!app/**/*.spec.js'])
       .pipe(concat('all.js'))
       .pipe(concat.header('var vs = {};\n\n'))
+      .pipe(babel({
+        presets: ['es2015']
+      }))
       .pipe(gulp.dest('compiled'));
   });
 

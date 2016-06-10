@@ -13,6 +13,6 @@
     "gulp-watch": "^4.3.5"
   },
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp travis"
   }
 }

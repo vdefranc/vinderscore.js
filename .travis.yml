@@ -1,7 +1,5 @@
-sudo: required
 language: node_js
 node_js:
   - "4.4.2"
-before_script:
-    - sudo npm install
+install: npm install
 script: npm test

@@ -14,7 +14,7 @@ var phantomOptions = {
 
 gulp.task('jshint', function() {
   return gulp.src(['app/**/*.js'])
-    .pipe(jshint())
+    .pipe(jshint({ "esversion": 6 }))
     .pipe(jshint.reporter('default'));
 });
 

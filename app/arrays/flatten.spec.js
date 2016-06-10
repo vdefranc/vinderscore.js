@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 describe('vs.flatten', function () {
   var oneLevel = [1],
       twoLevels = [3, [4, 5]],
@@ -33,7 +35,7 @@ describe('vs.flatten', function () {
           result = vs.flatten(input, true),
           expected = [1, 3, [4, 5], 6, [7, [8, 9]]];
 
-      expect(result).toEqual(expected)
+      expect(result).toEqual(expected);
     });
   });
   

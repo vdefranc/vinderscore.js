@@ -45,7 +45,10 @@ gulp.task('watch', function () {
   });
 });
 
-gulp.task('travis', ['concat.scripts', 'concat.tests', 'test']);
+gulp.task('travis', function () {
+    return gulp.src(['app/**/*.js','app/**/*.spec.js'])
+      .pipe(jasmineBrowser(phantomOptions));
+  });
 
 // Default Task
 gulp.task('default', ['jshint', 'concat.scripts', 'concat.tests', 'test']);

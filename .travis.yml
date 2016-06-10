@@ -1,7 +1,9 @@
 language: node_js
 node_js:
   - "4.4.2"
-before_script:
+before_install:
   - npm install -g gulp
   - npm install gulp-jasmine-phantom
+before_script:
+  - npm install
 script: gulp

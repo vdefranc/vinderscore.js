@@ -13,6 +13,56 @@ Function.prototype.bind = Function.prototype.bind || function (thisp) {
 };
 
 /**
+ * Intended to match: http://underscorejs.org/#each
+ * @param  {Array} array 
+ * @param  {Function} iteratee 
+ * @param  {Object} context 
+ * @returns {Array} "Returns the list for chaining"
+ *
+ *
+ * 1. Iterates over a list of elements, yielding each in turn to an iteratee function.
+ *     DONE
+ * 2. The iteratee is bound to the context object, if one is passed.
+ *     DONE
+ * 3. Each invocation of iteratee is called with three arguments: (element, index, list).
+ * 4. If list is a JavaScript object, iteratee's arguments will be (value, key, list).
+ *
+ * From the note: 
+ *   Collection functions work on arrays, objects, 
+ *   and array-like objects such as arguments, NodeList and similar. 
+ *   But it works by duck-typing, so avoid passing objects with a numeric length property.
+ */
+
+vs.each = function (list, iteratee, context) {
+  var fn = iteratee,
+      target;
+
+  // if an object is passed in as a collection, unpackage it in the target
+  // otherwise set target to the list
+  if (!list.length) {
+    target = [];
+
+    for (var prop in list) {
+      if (list.hasOwnProperty(prop)) {
+        target.push(list[prop]);
+      }
+    }
+  } else {
+    target = list;
+  }
+
+  if ((typeof context === 'undefined' ? 'undefined' : _typeof(context)) === 'object') {
+    fn = iteratee.bind(context);
+  }
+
+  target.forEach(function (item) {
+    fn(item);
+  });
+
+  return list;
+};
+
+/**
  * vs.compact
  *
  * Returns a copy of the array with all falsy values removed.
@@ -145,124 +195,6 @@ vs.rest = function (array, index) {
   return array.slice(sliceIndex, array.length);
 };
 /**
- * Intended to match: http://underscorejs.org/#each
- * @param  {Array} array 
- * @param  {Function} iteratee 
- * @param  {Object} context 
- * @returns {Array} "Returns the list for chaining"
- *
- *
- * 1. Iterates over a list of elements, yielding each in turn to an iteratee function.
- *     DONE
- * 2. The iteratee is bound to the context object, if one is passed.
- *     DONE
- * 3. Each invocation of iteratee is called with three arguments: (element, index, list).
- * 4. If list is a JavaScript object, iteratee's arguments will be (value, key, list).
- *
- * From the note: 
- *   Collection functions work on arrays, objects, 
- *   and array-like objects such as arguments, NodeList and similar. 
- *   But it works by duck-typing, so avoid passing objects with a numeric length property.
- */
-
-vs.each = function (list, iteratee, context) {
-  var fn = iteratee,
-      target;
-
-  // if an object is passed in as a collection, unpackage it in the target
-  // otherwise set target to the list
-  if (!list.length) {
-    target = [];
-
-    for (var prop in list) {
-      if (list.hasOwnProperty(prop)) {
-        target.push(list[prop]);
-      }
-    }
-  } else {
-    target = list;
-  }
-
-  if ((typeof context === 'undefined' ? 'undefined' : _typeof(context)) === 'object') {
-    fn = iteratee.bind(context);
-  }
-
-  target.forEach(function (item) {
-    fn(item);
-  });
-
-  return list;
-};
-
-/**
- * vs.keys
- *
- * http://underscorejs.org/#keys
- *
- * Retrieve an array of the names of the object's own enumerable properties.
- *
- * @param { Object } obj - an object to be parsed
- * @returns { Array } the array will contain the names of all the objects's keys
- * 
- */
-
-vs.keys = function (obj) {
-  var result = [],
-      prop;
-
-  for (prop in obj) {
-    if (obj.hasOwnProperty(prop)) {
-      console.log(prop);
-      result.push(prop);
-    }
-  }
-
-  return result;
-};
-/**
- * vs.isMatch
- *
- * http://underscorejs.org/#ismatch
- *
- * Tells you if the keys and values in properties are contained in object.
- * 
- * @param { object } [obj] [an object to test against param props]
- * @param { object } [props] [a set of key/val pairs to check for]
- */
-
-vs.isMatch = function (obj, props) {
-  var result = true,
-      prop;
-
-  for (prop in props) {
-    if (props.hasOwnProperty(prop)) {
-      if (!obj.hasOwnProperty(prop) || obj[prop] !== props[prop]) {
-        result = false;
-      }
-    }
-  }
-
-  return result;
-};
-
-/**
- * vs.matcher
- *
- * http://underscorejs.org/#matcher
- *
- * Returns a predicate function that will tell you if a passed in object 
- * contains all of the key/value properties present in attrs.
- *
- * @param { object } [attrs] [a set of set of key-value pairs to be checked for]
- * 
- */
-
-vs.matcher = function (attrs) {
-  return function (obj) {
-    return vs.isMatch(obj, attrs);
-  };
-};
-/**
  * Creates a function that returns the same value that is used as the argument
  * http://underscorejs.org/#constant
  * 
@@ -339,4 +271,72 @@ vs.random = function (min, max) {
   }
 
   return result;
+};
+/**
+ * vs.keys
+ *
+ * http://underscorejs.org/#keys
+ *
+ * Retrieve an array of the names of the object's own enumerable properties.
+ *
+ * @param { Object } obj - an object to be parsed
+ * @returns { Array } the array will contain the names of all the objects's keys
+ * 
+ */
+
+vs.keys = function (obj) {
+  var result = [],
+      prop;
+
+  for (prop in obj) {
+    if (obj.hasOwnProperty(prop)) {
+      console.log(prop);
+      result.push(prop);
+    }
+  }
+
+  return result;
+};
+/**
+ * vs.isMatch
+ *
+ * http://underscorejs.org/#ismatch
+ *
+ * Tells you if the keys and values in properties are contained in object.
+ * 
+ * @param { object } [obj] [an object to test against param props]
+ * @param { object } [props] [a set of key/val pairs to check for]
+ */
+
+vs.isMatch = function (obj, props) {
+  var result = true,
+      prop;
+
+  for (prop in props) {
+    if (props.hasOwnProperty(prop)) {
+      if (!obj.hasOwnProperty(prop) || obj[prop] !== props[prop]) {
+        result = false;
+      }
+    }
+  }
+
+  return result;
+};
+
+/**
+ * vs.matcher
+ *
+ * http://underscorejs.org/#matcher
+ *
+ * Returns a predicate function that will tell you if a passed in object 
+ * contains all of the key/value properties present in attrs.
+ *
+ * @param { object } [attrs] [a set of set of key-value pairs to be checked for]
+ * 
+ */
+
+vs.matcher = function (attrs) {
+  return function (obj) {
+    return vs.isMatch(obj, attrs);
+  };
 };

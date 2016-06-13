@@ -44,12 +44,20 @@ gulp.task('coverage', function () {
 
 });
 
-gulp.task('submit-coverage', function () {
-  gulp.src('report/**/lcov.info')
+
+
+gulp.task('CI', ['concat.scripts', 'concat.tests'], function () {
+  var otheropts = {
+    src: ['compiled/all.js'],
+    spec: ['compiled/all.spec.js'],
+    base: '.'
+  };
+
+  jip(otheropts);
+
+   gulp.src('report/**/lcov.info')
     .pipe(coveralls());
 });
-
-gulp.task('CI', ['concat.scripts', 'concat.tests', 'coverage', 'submit-coverage']);
 
 gulp.task('test', function () {
   return gulp.src(['compiled/all.js','compiled/all.spec.js'])

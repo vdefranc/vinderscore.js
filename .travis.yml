@@ -4,4 +4,7 @@ node_js:
 before_install:
   - npm install -g gulp
   - npm install phantomjs
+script:
+  - npm test
+  - gulp submit-cov
 

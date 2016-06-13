@@ -44,7 +44,10 @@ gulp.task('coverage', function () {
 
 });
 
-
+gulp.task('submit-cov', function () {
+  gulp.src('report/**/lcov.info')
+    .pipe(coveralls());
+});
 
 gulp.task('CI', ['concat.scripts', 'concat.tests'], function () {
   var otheropts = {

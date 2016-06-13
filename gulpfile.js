@@ -49,7 +49,7 @@ gulp.task('submit-coverage', function () {
     .pipe(coveralls());
 });
 
-gulp.task('CI', ['concat.scripts', 'concat.tests', 'coverall', 'coverage', 'submit-coverage']);
+gulp.task('CI', ['concat.scripts', 'concat.tests', 'coverage', 'submit-coverage']);
 
 gulp.task('test', function () {
   return gulp.src(['compiled/all.js','compiled/all.spec.js'])

@@ -17,7 +17,7 @@ describe('vs.each', function () {
     vs.each(payload, spy);
 
     var test = spy.calls.count(),
-        expected = payload.length;
+        expected = payload.length + 5;
 
     expect(test).toEqual(expected);
   });
@@ -37,7 +37,7 @@ describe('vs.each', function () {
 
     vs.each([1], car.howManyWheels, tricycle);
 
-    expect(result).toEqual(expected);
+    expect(result).toEqual('broken test');
   });
 
   it('should work with objects', function () {

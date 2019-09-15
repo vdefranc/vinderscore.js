@@ -1,11 +1,11 @@
 /**
  * [first description]
- * @param  {Array} array  
+ * @param  {Array} array
  * @param  {Number} n [The number of items to return from the begining of the array]
  * @return {Array || number}} If an n param is passed, function returns an array. Otherwise returns a number
  */
 
-function first (array, n) {
+function first(array, n) {
   var result;
 
   if (n) {
@@ -15,7 +15,7 @@ function first (array, n) {
       result.push(array[i]);
     }
   } else {
-    result = array.slice(0,1)[0];
+    result = array.slice(0, 1)[0];
   }
 
   return result;

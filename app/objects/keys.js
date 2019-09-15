@@ -7,12 +7,12 @@
  *
  * @param { Object } obj - an object to be parsed
  * @returns { Array } the array will contain the names of all the objects's keys
- * 
+ *
  */
 
-function keys (obj) {
+function keys(obj) {
   var result = [],
-      prop;
+    prop;
 
   for (prop in obj) {
     if (obj.hasOwnProperty(prop)) {

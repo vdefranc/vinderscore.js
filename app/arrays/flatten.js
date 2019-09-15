@@ -8,12 +8,11 @@
  * @returns {Array} the flattened array
  */
 
-function flatten (array, shallow) {
+function flatten(array, shallow) {
   var result = [],
-      numRuns = 0;
+    numRuns = 0;
 
-  array.forEach((help) => unpackItem(help));
-  
+  array.forEach(help => unpackItem(help));
 
   return result;
 
@@ -26,11 +25,10 @@ function flatten (array, shallow) {
           // item.forEach(function (thing) {
           //   result.push(thing);
           // });
-          
+
           child.forEach(function(doubleChild) {
             unpackItem(doubleChild);
           });
-          
 
           numRuns++;
         } else {
@@ -41,7 +39,6 @@ function flatten (array, shallow) {
       result.push(item);
     }
   }
-
 }
 
 module.exports = { flatten };

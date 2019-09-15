@@ -1,8 +1,8 @@
 /**
  * Intended to match: http://underscorejs.org/#each
- * @param  {Array} array 
- * @param  {Function} iteratee 
- * @param  {Object} context 
+ * @param  {Array} array
+ * @param  {Function} iteratee
+ * @param  {Object} context
  * @returns {Array} "Returns the list for chaining"
  *
  *
@@ -13,15 +13,15 @@
  * 3. Each invocation of iteratee is called with three arguments: (element, index, list).
  * 4. If list is a JavaScript object, iteratee's arguments will be (value, key, list).
  *
- * From the note: 
- *   Collection functions work on arrays, objects, 
- *   and array-like objects such as arguments, NodeList and similar. 
+ * From the note:
+ *   Collection functions work on arrays, objects,
+ *   and array-like objects such as arguments, NodeList and similar.
  *   But it works by duck-typing, so avoid passing objects with a numeric length property.
  */
 
-function each (list, iteratee, context) {
+function each(list, iteratee, context) {
   var fn = iteratee,
-      target;
+    target;
 
   // if an object is passed in as a collection, unpackage it in the target
   // otherwise set target to the list
@@ -29,7 +29,7 @@ function each (list, iteratee, context) {
     target = [];
 
     for (var prop in list) {
-      if ( list.hasOwnProperty(prop) ) {
+      if (list.hasOwnProperty(prop)) {
         target.push(list[prop]);
       }
     }
@@ -37,11 +37,11 @@ function each (list, iteratee, context) {
     target = list;
   }
 
-  if (typeof context === 'object') {
+  if (typeof context === "object") {
     fn = iteratee.bind(context);
   }
 
-  target.forEach(function (item) {
+  target.forEach(function(item) {
     fn(item);
   });
 
@@ -49,5 +49,3 @@ function each (list, iteratee, context) {
 }
 
 module.exports = { each };
-
-

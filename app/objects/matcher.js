@@ -4,16 +4,17 @@
  * http://underscorejs.org/#ismatch
  *
  * Tells you if the keys and values in properties are contained in object.
- * 
+ *
  * @param { object } [obj] [an object to test against param props]
  * @param { object } [props] [a set of key/val pairs to check for]
  */
 
-function isMatch (obj, props) {
-  var result = true, prop;
+function isMatch(obj, props) {
+  var result = true,
+    prop;
 
   for (prop in props) {
-    if ( props.hasOwnProperty(prop) ) {
+    if (props.hasOwnProperty(prop)) {
       if (!obj.hasOwnProperty(prop) || obj[prop] !== props[prop]) {
         result = false;
       }
@@ -23,21 +24,20 @@ function isMatch (obj, props) {
   return result;
 }
 
-
 /**
  * vs.matcher
  *
  * http://underscorejs.org/#matcher
  *
- * Returns a predicate function that will tell you if a passed in object 
+ * Returns a predicate function that will tell you if a passed in object
  * contains all of the key/value properties present in attrs.
  *
  * @param { object } [attrs] [a set of set of key-value pairs to be checked for]
- * 
+ *
  */
 
-function matcher (attrs) {
-  return function (obj) {
+function matcher(attrs) {
+  return function(obj) {
     return vs.isMatch(obj, attrs);
   };
 }

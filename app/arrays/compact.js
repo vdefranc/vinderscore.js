@@ -5,14 +5,14 @@
  * In JavaScript, false, null, 0, "", undefined and NaN are all falsy.
  *
  * http://underscorejs.org/#compact
- * 
+ *
  * @return {[type]} [description]
  */
 
-function compact (array) {
+function compact(array) {
   var result = [];
 
-  array.forEach(function (item) {
+  array.forEach(function(item) {
     if (item) result.push(item);
   });
 

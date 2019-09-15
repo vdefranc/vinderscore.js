@@ -11,7 +11,7 @@
  *                            cell
  */
 
-vs.last = function (array, n) {
+function last (array, n) {
   var result;
 
   if (n) {
@@ -28,4 +28,6 @@ vs.last = function (array, n) {
   }
 
   return result;
-};
+}
+
+module.exports = { last };

@@ -1,4 +1,6 @@
-describe('vs.random', function () {
+const { random } = require('./random');
+
+describe('random', function () {
 
   it('is complete', function () {
     expect(true).toEqual(true);
@@ -8,7 +10,7 @@ describe('vs.random', function () {
     describe(', when one argument is passed,', function () {
       it('returns a number higher than 0 and lower than the argument', function () {
         var min = 20,
-            result = vs.random(min),
+            result = random(min),
             testCase = result >= 0 && min >= result;
 
         expect(testCase).toEqual(true);
@@ -20,7 +22,7 @@ describe('vs.random', function () {
     it('returns a number higher than the first argument and lower than the second', function () {
       var min = 20,
           max = 50,
-          result = vs.random(min, max),
+          result = random(min, max),
           testCase = result >= 20 && result <= 50;
 
       expect(testCase).toEqual(true);

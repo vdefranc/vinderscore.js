@@ -1,4 +1,6 @@
-describe('vs.keys:', function () {
+const { keys } = require('./keys');
+
+describe('keys:', function () {
 
   it('is compete', function () {
     expect(true).toEqual(true);
@@ -14,10 +16,10 @@ describe('vs.keys:', function () {
     testObj[prop] = 1;
   });
 
-  result = vs.keys(testObj);
+  result = keys(testObj);
 
   it('returns an array', function () {
-    var blankResult = vs.keys();
+    var blankResult = keys();
     expect(Array.isArray( result )).toEqual(true);
   });
 

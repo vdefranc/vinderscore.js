@@ -9,7 +9,7 @@
  * @param { object } [props] [a set of key/val pairs to check for]
  */
 
-vs.isMatch = function (obj, props) {
+function isMatch (obj, props) {
   var result = true, prop;
 
   for (prop in props) {
@@ -21,7 +21,7 @@ vs.isMatch = function (obj, props) {
   }
 
   return result;
-};
+}
 
 
 /**
@@ -36,8 +36,10 @@ vs.isMatch = function (obj, props) {
  * 
  */
 
-vs.matcher = function (attrs) {
+function matcher (attrs) {
   return function (obj) {
     return vs.isMatch(obj, attrs);
   };
-};
+}
+
+module.exports = { isMatch, matcher };

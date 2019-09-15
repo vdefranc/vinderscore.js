@@ -1,4 +1,6 @@
-describe('vs.isMatch', function () {
+const { isMatch, matcher } = require('./matcher');
+
+describe('isMatch', function () {
 
   it('is compete', function () {
     expect(true).toEqual(true);
@@ -32,41 +34,41 @@ describe('vs.isMatch', function () {
   });
 
   it('returns a boolean', function () {
-    expect(vs.isMatch(vin, frank)).toEqual(jasmine.any(Boolean));
+    expect(isMatch(vin, frank)).toEqual(jasmine.any(Boolean));
   });
 
   it('returns true if an object is an exact match', function () {
-    result = vs.isMatch(vin, vin);
+    result = isMatch(vin, vin);
 
     expect(result).toEqual(true);
   });
 
   it('returns true if any object is tested against an empty object', function () {
-    result = vs.isMatch(vin, {});
+    result = isMatch(vin, {});
 
     expect(result).toEqual(true);
   });
 
   it('returns false if a tested obj\'s key has a differnt value that the reference obj\'s key', function () {
-    result = vs.isMatch(youngVin, vin);
+    result = isMatch(youngVin, vin);
 
     expect(result).toEqual(false);
   });
 
   it('returns false if the tested object doesn\'t contain ALL key/val pairs of the reference obj', function () {
-    result = vs.isMatch({name: 'vin'}, vin);
+    result = isMatch({name: 'vin'}, vin);
 
     expect(result).toEqual(false);
   });
 
   it('returns false if the tested object doesn\'t contain ALL key/val pairs of the reference obj', function () {
-    result = vs.isMatch({name: 'vin'}, vin);
+    result = isMatch({name: 'vin'}, vin);
 
     expect(result).toEqual(false);
   });
 
   it('returns true if the tested object has all key/val pairs but extra ones as well', function () {
-    result = vs.isMatch(bigVin, vin);
+    result = isMatch(bigVin, vin);
 
     expect(result).toEqual(true);
   });
@@ -74,7 +76,7 @@ describe('vs.isMatch', function () {
 
 });
 
-describe('vs.matcher', function () {
+describe('matcher', function () {
 
   it('is compete', function () {
     expect(true).toEqual(true);
@@ -85,13 +87,13 @@ describe('vs.matcher', function () {
   });
 
   it('returns a function', function () {
-    expect(vs.matcher()).toEqual(jasmine.any(Function));
+    expect(matcher()).toEqual(jasmine.any(Function));
   });
 
-  it('invoking the returned function also invokes vs.isMatch', function () {
+  it('invoking the returned function also invokes isMatch', function () {
     var matchSpy = spyOn(vs, 'isMatch').and.callThrough();
 
-    vs.matcher({name: 'vin'})({name: 'frank'});
+    matcher({name: 'vin'})({name: 'frank'});
 
     expect(matchSpy).toHaveBeenCalled();
   });

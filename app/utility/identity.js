@@ -11,6 +11,8 @@
  * @return {Any}
  */
 
-vs.identity = function (value) {
+function identity (value) {
   return value;
-};
+}
+
+module.exports = { identity };

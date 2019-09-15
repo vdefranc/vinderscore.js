@@ -7,8 +7,10 @@
  * @param {Number} index - Pass an index to return the values of the array from that index onward.
  */
 
-vs.rest = function (array, index) {
+function rest (array, index) {
   var sliceIndex = index ? index : 1;
 
   return array.slice(sliceIndex, array.length);
-};
+}
+
+module.exports = { rest };

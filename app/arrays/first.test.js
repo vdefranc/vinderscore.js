@@ -1,4 +1,6 @@
-describe('vs.first', function () {
+const { first } = require('./first');
+
+describe('first', function () {
   it('should be complete', function () {
     expect(false).toEqual(true);
     // the function does not necessarily return a number.
@@ -8,7 +10,7 @@ describe('vs.first', function () {
 
   describe('if called with one argument', function () {
     it('should return an number', function () {
-      var result = typeof vs.first([1]),
+      var result = typeof first([1]),
           expected = 'number';
 
       expect(result).toEqual(expected);
@@ -16,7 +18,7 @@ describe('vs.first', function () {
 
     it('should return the first number in the argument', function () {
       var arg = [5,4,3,2,1],
-          result = vs.first(arg);
+          result = first(arg);
 
       expect(result).toEqual(arg[0]);
     });
@@ -24,7 +26,7 @@ describe('vs.first', function () {
 
   describe('if called with two arguments', function () {
     it('should return an array', function () {
-      var result = Array.isArray( vs.first([1,2], 2) ),
+      var result = Array.isArray( first([1,2], 2) ),
           expected = true;
 
       expect(result).toEqual(expected);
@@ -32,7 +34,7 @@ describe('vs.first', function () {
 
     it('should return the first n cells of the argument', function () {
       var arg = [5,4,3,2,1],
-          result = vs.first(arg, 3),
+          result = first(arg, 3),
           expected = [5,4,3];
 
       expect(result).toEqual(expected);

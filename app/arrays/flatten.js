@@ -8,7 +8,7 @@
  * @returns {Array} the flattened array
  */
 
-vs.flatten = (array, shallow) => {
+function flatten (array, shallow) {
   var result = [],
       numRuns = 0;
 
@@ -42,4 +42,6 @@ vs.flatten = (array, shallow) => {
     }
   }
 
-};
+}
+
+module.exports = { flatten };

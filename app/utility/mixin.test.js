@@ -1,4 +1,6 @@
-describe('vs.mixin', function () {
+const { mixin } = require('./mixin');
+
+describe('mixin', function () {
 
   it('is compete', function () {
     expect(false).toEqual(true);
@@ -13,15 +15,15 @@ describe('vs.mixin', function () {
       mixinTest: add
     };
 
-    vs.mixin(payload);
+    mixin(payload);
   });
 
   it('adds each argument property to the vs object', function () {
-    expect(vs.mixinTest).toBeDefined();
+    expect(mixinTest).toBeDefined();
   });
 
   it(': the added functions work as expected', function () {
-    expect(vs.mixinTest(2,3)).toEqual(5);
+    expect(mixinTest(2,3)).toEqual(5);
   });
 
   xit('makes the functions available for chaining', function () {
@@ -29,7 +31,6 @@ describe('vs.mixin', function () {
   });
 
   afterEach(function () {
-    delete vs.mixinTest;
+    delete mixinTest;
   });
-
 });

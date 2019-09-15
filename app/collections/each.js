@@ -19,7 +19,7 @@
  *   But it works by duck-typing, so avoid passing objects with a numeric length property.
  */
 
-vs.each = function (list, iteratee, context) {
+function each (list, iteratee, context) {
   var fn = iteratee,
       target;
 
@@ -46,6 +46,8 @@ vs.each = function (list, iteratee, context) {
   });
 
   return list;
-};
+}
+
+module.exports = { each };
 
 

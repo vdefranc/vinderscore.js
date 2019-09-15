@@ -10,7 +10,7 @@
  * 
  */
 
-vs.keys = function (obj) {
+function keys (obj) {
   var result = [],
       prop;
 
@@ -22,4 +22,6 @@ vs.keys = function (obj) {
   }
 
   return result;
-};
+}
+
+module.exports = { keys };

@@ -6,8 +6,10 @@
  * @return {Function}  The returned function returns the original value
  */
 
-vs.constant = function (value) {
+function constant (value) {
   return function () {
     return value;
   };
-};
+}
+
+module.exports = { constant };

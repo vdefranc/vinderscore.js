@@ -9,12 +9,16 @@
  * @return {[type]} [description]
  */
 
-vs.compact = function (array) {
+function compact (array) {
   var result = [];
 
   array.forEach(function (item) {
     if (item) result.push(item);
   });
-  
+
   return result;
+}
+
+module.exports = {
+  compact
 };

@@ -1,6 +1,6 @@
-/*jshint esversion: 6 */
+const { flatten } = require('./flatten');
 
-describe('vs.flatten', function () {
+describe('flatten', function () {
   var oneLevel = [1],
       twoLevels = [3, [4, 5]],
       threeLevels = [6, [7, [8, 9]]];
@@ -11,7 +11,7 @@ describe('vs.flatten', function () {
 
   describe('when called with one param (that has a length greater than 0)', function () {
     var input = [oneLevel, twoLevels, threeLevels],
-          result = vs.flatten(input);
+          result = flatten(input);
 
     it('should return an array', function () {
       expect(Array.isArray(result)).toEqual(true);
@@ -32,7 +32,7 @@ describe('vs.flatten', function () {
   xdescribe('when it is called with [shallow] === true', function () {
     it('flattens each child array only one degree', function () {
       var input = [oneLevel, twoLevels, threeLevels],
-          result = vs.flatten(input, true),
+          result = flatten(input, true),
           expected = [1, 3, [4, 5], 6, [7, [8, 9]]];
 
       expect(result).toEqual(expected);

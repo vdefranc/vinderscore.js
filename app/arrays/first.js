@@ -5,7 +5,7 @@
  * @return {Array || number}} If an n param is passed, function returns an array. Otherwise returns a number
  */
 
-vs.first = function (array, n) {
+function first (array, n) {
   var result;
 
   if (n) {
@@ -19,4 +19,6 @@ vs.first = function (array, n) {
   }
 
   return result;
-};
+}
+
+module.exports = { first };

@@ -12,7 +12,7 @@
 // got two-argument scenario from:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 
-vs.random = function (min, max) {
+function random (min, max) {
   var result = max ? twoArgs() : oneArg();
 
   function oneArg () {
@@ -24,4 +24,6 @@ vs.random = function (min, max) {
   }
 
   return result;
-};
+}
+
+module.exports = { random };

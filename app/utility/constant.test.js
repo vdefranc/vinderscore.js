@@ -1,4 +1,6 @@
-describe('vs.constant', function () {
+const { constant } = require('./constant');
+
+describe('constant', function () {
   it('is complete', function () {
     expect(true).toEqual(true);
   });
@@ -7,7 +9,7 @@ describe('vs.constant', function () {
 
     it('number', function () {
       var argument = 6,
-          result = vs.constant(argument)(),
+          result = constant(argument)(),
           expected = argument;
 
       expect(result).toEqual(argument);
@@ -15,7 +17,7 @@ describe('vs.constant', function () {
 
     it('object', function () {
       var argument = {name: 'vin'},
-          result = vs.constant(argument)(),
+          result = constant(argument)(),
           expected = argument;
 
       expect(result).toEqual(argument);
@@ -23,7 +25,7 @@ describe('vs.constant', function () {
 
     it('array', function () {
       var argument = [1, 2, 3, 4],
-          result = vs.constant(argument)(),
+          result = constant(argument)(),
           expected = argument;
 
       expect(result).toEqual(argument);
@@ -31,7 +33,7 @@ describe('vs.constant', function () {
 
     it('function', function () {
       var argument = testAdd,
-          result = vs.constant(argument)(),
+          result = constant(argument)(),
           expected = argument;
 
       expect(result).toEqual(argument);

@@ -12,7 +12,7 @@
  * 
  */
 
-vs.mixin = function (object) {
+function mixin (object) {
 
   for (var prop in object) {
     if(object.hasOwnProperty(prop)) {
@@ -20,4 +20,6 @@ vs.mixin = function (object) {
     }
   }
 
-};
+}
+
+module.exports = { mixin };

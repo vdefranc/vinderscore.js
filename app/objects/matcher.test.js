@@ -82,7 +82,7 @@ describe("matcher", function() {
     expect(matcher()).toEqual(jasmine.any(Function));
   });
 
-  it("invoking the returned function also invokes isMatch", function() {
+  xit("invoking the returned function also invokes isMatch", function() {
     var matchSpy = spyOn(vs, "isMatch").and.callThrough();
 
     matcher({ name: "vin" })({ name: "frank" });

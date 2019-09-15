@@ -6,4 +6,4 @@ This is a project to rewrite the Underscore.js library without looking at the so
 
 Just for fun!
 
-edit haha
+Update (Sept 2019): Revisiting this. Debating re-configuring the app to rely on straight-up node. The fact I'm using phantom to test and gulp to compile feels very old school.

@@ -1,9 +1,0 @@
-language: node_js
-node_js:
-  - "4.4.2"
-before_install:
-  - npm install -g gulp
-  - npm install phantomjs
-script:
-  - npm test
-  - gulp submit-cov

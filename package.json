@@ -5,8 +5,7 @@
     "jasmine-istanbul-phantom": "^1.1.1",
     "jest": "^24.9.0"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "dependencies": {
     "istanbul": "^0.4.3"
   }
